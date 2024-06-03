@@ -136,6 +136,7 @@ class _AddItemPageState extends State<AddItemPage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                //--- redirect buttom back device ---
                 PopScope(
                   canPop: false,
                   onPopInvoked: (bool didPop) async {
@@ -152,7 +153,7 @@ class _AddItemPageState extends State<AddItemPage> {
                   },
                   child: const SizedBox(),
                 ),
-                //--- ----
+                //---form ----
                 Form(
                   key: formKey,
                   onChanged: () {
