@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
-import '../../../common/loading.dart';
+import '../../../common/overlay_loading.dart';
 import '../controller/auth_controller.dart';
 import '../widgets/input_field.dart';
 

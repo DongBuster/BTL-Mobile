@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../pages/addItemPage/add_item_page.dart';
 import '../pages/auth/views/login_page.dart';
 import '../pages/auth/views/register_page.dart';
 import '../pages/homePage/home_page.dart';
@@ -14,7 +15,7 @@ final GoRouter routeConfig = GoRouter(
     GoRoute(
       path: '/login',
       pageBuilder: (BuildContext context, GoRouterState state) {
-        return buildAuthPageWithDefaultTransition(
+        return buildPageWithNoDefaultTransition(
           context: context,
           state: state,
           child: const LoginPage(),
@@ -34,7 +35,7 @@ final GoRouter routeConfig = GoRouter(
     GoRoute(
       path: '/register',
       pageBuilder: (BuildContext context, GoRouterState state) {
-        return buildAuthPageWithDefaultTransition(
+        return buildPageWithNoDefaultTransition(
           context: context,
           state: state,
           child: const RegisterPage(),
@@ -50,14 +51,6 @@ final GoRouter routeConfig = GoRouter(
           child: const HomePage(),
         );
       },
-      // routes: <RouteBase>[
-      //   GoRoute(
-      //     path: 'details',
-      //     builder: (BuildContext context, GoRouterState state) {
-      //       return const DetailsScreen();
-      //     },
-      //   ),
-      // ],
     ),
     GoRoute(
       path: '/profilePage',
@@ -66,6 +59,16 @@ final GoRouter routeConfig = GoRouter(
           context: context,
           state: state,
           child: const ProfilePage(),
+        );
+      },
+    ),
+    GoRoute(
+      path: '/addItemPage',
+      pageBuilder: (BuildContext context, GoRouterState state) {
+        return buildPageWithNoDefaultTransition(
+          context: context,
+          state: state,
+          child: AddItemPage(),
         );
       },
     ),

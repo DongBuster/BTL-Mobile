@@ -132,7 +132,7 @@ class AuthController {
           .then(
         (value) {
           createUser(controllerUsername.text, user.uid);
-          context.goNamed('/login');
+          context.go('/login');
         },
       );
     } on FirebaseAuthException catch (e) {

@@ -1,5 +1,5 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_btl/pages/addItemPage/add_item_page.dart';
 import 'package:go_router/go_router.dart';
 
 class AppLayout extends StatefulWidget {
@@ -16,17 +16,24 @@ class AppLayout extends StatefulWidget {
 class _AppLayoutState extends State<AppLayout> {
   @override
   Widget build(BuildContext context) {
+    // print(GoRouterState.of(context).uri.toString());
     return Scaffold(
       body: widget.child,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: const SizedBox(
+      floatingActionButton: SizedBox(
         width: 45,
         height: 45,
         child: FloatingActionButton(
-          shape: CircleBorder(),
-          onPressed: null,
+          shape: const CircleBorder(),
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (_) =>
+                        const AddItemPage(isChange: false, item: null)));
+          },
           backgroundColor: Colors.blue,
-          child: Icon(
+          child: const Icon(
             Icons.add,
             size: 22,
             color: Colors.white,
@@ -34,8 +41,9 @@ class _AppLayoutState extends State<AppLayout> {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
-        height: 65,
-        color: Colors.blue.withOpacity(0.2),
+        padding: const EdgeInsets.all(3),
+        height: 50,
+        color: Colors.blue.withOpacity(0.01),
         surfaceTintColor: Colors.blue,
         notchMargin: 8,
         shape: const CircularNotchedRectangle(),
@@ -50,16 +58,26 @@ class _AppLayoutState extends State<AppLayout> {
                 onTap: () {
                   context.go('/homePage');
                 },
-                child: const Column(
+                child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Icon(
                       Icons.home,
                       size: 22,
+                      color: GoRouterState.of(context).uri.toString() ==
+                              '/homePage'
+                          ? Colors.blue
+                          : Colors.grey.shade600,
                     ),
                     Text(
                       'Home',
-                      style: TextStyle(fontSize: 12),
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: GoRouterState.of(context).uri.toString() ==
+                                '/homePage'
+                            ? Colors.blue
+                            : Colors.grey.shade600,
+                      ),
                     )
                   ],
                 ),
@@ -72,16 +90,26 @@ class _AppLayoutState extends State<AppLayout> {
                 onTap: () {
                   context.go('/profilePage');
                 },
-                child: const Column(
+                child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Icon(
                       Icons.person,
                       size: 22,
+                      color: GoRouterState.of(context).uri.toString() ==
+                              '/profilePage'
+                          ? Colors.blue
+                          : Colors.grey.shade600,
                     ),
                     Text(
                       'Profile',
-                      style: TextStyle(fontSize: 12),
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: GoRouterState.of(context).uri.toString() ==
+                                '/profilePage'
+                            ? Colors.blue
+                            : Colors.grey.shade600,
+                      ),
                     )
                   ],
                 ),
